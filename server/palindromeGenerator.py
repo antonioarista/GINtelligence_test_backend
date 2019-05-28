@@ -179,4 +179,6 @@ def generatePalindromes_json(topCriteria):
     return jsonify(Sum=sumAll, All = colAll, Bin = colAllBin)
 
 
+if __name__ == '__main__':
+    myFlaskObject.run(host='0.0.0.0')
 
