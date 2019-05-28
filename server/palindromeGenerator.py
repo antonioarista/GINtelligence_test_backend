@@ -22,7 +22,7 @@ from flask import Flask, jsonify
 #------------------------------------------------------------------------
 
 #El objeto flask que utilizaremos para añadir la operación GET a la función.
-myFlaskObject = Flask(__name__)
+application = Flask(__name__)
 
 
 '''
@@ -141,7 +141,7 @@ Retorna: Un texto plano.
 -------------------------------------------------------------------------
 '''
 
-@myFlaskObject.route('/getPalindrome/<int:topCriteria>')
+@application.route('/getPalindrome/<int:topCriteria>')
 def generatePalindromes(topCriteria):
     textToSend = ""
     if(dataCheck(topCriteria) == False):
@@ -171,7 +171,7 @@ El formato del JSON para el numero 585 es:
 }
 -------------------------------------------------------------------------
 '''
-@myFlaskObject.route('/getPalindromeJSON/<int:topCriteria>')
+@application.route('/getPalindromeJSON/<int:topCriteria>')
 def generatePalindromes_json(topCriteria):
     if(dataCheck(topCriteria) == False):
          return jsonify(Sum=-1, All = [-1], Bin = [-1])
@@ -180,5 +180,5 @@ def generatePalindromes_json(topCriteria):
 
 
 if __name__ == '__main__':
-    myFlaskObject.run(host='0.0.0.0')
+    application.run(host='0.0.0.0')
 
